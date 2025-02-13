@@ -7,7 +7,7 @@
 - ```git status```
 - ```git add .```
 - ```git commit -m "write msg"```
--``` git push```
+- ``` git push```
 
  
 
