@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "26970c38-05b5-41c2-83e8-6021d9c2de36",
+		"name": "NIC ASIA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42141690"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Permission",
+					"item": [
+						{
+							"name": "get all permission",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData= pm.response.json();\r",
+									"console.log('Response Data:',jsonData)\r",
+									"\r",
+									"var bearerToken=jsonData.data.token;\r",
+									"console.log('Bearer Token:',bearerToken)\r",
+									"\r",
+									"pm.collectionVariables.set('BearerToken',bearerToken)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "bijwol.shakya@amniltech.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "#BuggyZone123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{nicasiabaseurl}}/login",
+							"host": [
+								"{{nicasiabaseurl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Department",
+			"item": [
+				{
+					"name": "get department",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5OTc4NzM5YS1kZjE2LTQ5NjctOTAyZi1jZjYyMDI1ZDQ4YzkiLCJqdGkiOiI2MTY1OWE0N2ZmZGRiMDA4NjFiYTI1OGIxYWQ4OWYxMDVkMjA0M2UxM2ZlOTFiNjRjNTIyODEyOTIxMGE4YzBjYWIxMzJkMWE3OTc0MWY4YyIsImlhdCI6MTczOTM3ODA2Ni43MjIwOTYsIm5iZiI6MTczOTM3ODA2Ni43MjIwOTksImV4cCI6MTczOTM4NTI2Ni43MDAxNzEsInN1YiI6IjBlZDZhZWEwLTVkYTUtNDM1NS05YTllLWU1MWM4ODhkZjFkZCIsInNjb3BlcyI6W119.AiWvFqwNoXNEcspt5AgGT0T4cmCEsakNH3LzApjoPfwdKOKz5i9CyipRrqh1MjNiXLzqODFwQEVemlOl0d0ai5Sw6ML7h_ZiuXld5lE7Kahj81X4SrvBvFnNp8wvEDcQSNW61MDmdBc3ls9sxu1oigZ5Y6d52M4njEmXothqKDLMC_mDtQhcS1lDeK8mW_rbGgFR2tKg-cA46ZCoKEaFBeQEzGmd-vXJzeOHr6RWIIY2BenE3qWW7vI0WrCGEtEyxyMz5lr9_q_1BxJDb3-A-4oez28IxdP1sT-MtffehFRGtZCtPLkKs2myfM-O_x77A3lrlfmx44g_nowOSGMwdwNc6FAPM_q6_C2nAWUuClzBblEs-LNOhYcQAmSvPclW-JT4lVgrS1segqlKvnvN53TAePY4oc7GbHN12QiafHZf3pofCsXISmvXajBT0pp64Gp7XlhLNLCDTiEdYNbIrBhyuY1O-i2_KTxKBEKEoyO-Mw5WwSc23c76eVJfP-qgMbcvjWPTQJWqyJTsXgf0v9difR1nZ7z7TljvoOScvV0ddxMGAaABAAEmefAkoMVTl0YopcFQH3xMGupZP1ZlQtkbiRx_ooBY4yOj5CMA5vCrFh8jgT4eMEytpHfB_om2ukkULvLEZyWq5PLtwlzzV_W41axqT-H0YmDT2xS9WL4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{nicasiabaseurl}}/department",
+							"host": [
+								"{{nicasiabaseurl}}"
+							],
+							"path": [
+								"department"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get department (pagination)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5OTc4NzM5YS1kZjE2LTQ5NjctOTAyZi1jZjYyMDI1ZDQ4YzkiLCJqdGkiOiI2MTY1OWE0N2ZmZGRiMDA4NjFiYTI1OGIxYWQ4OWYxMDVkMjA0M2UxM2ZlOTFiNjRjNTIyODEyOTIxMGE4YzBjYWIxMzJkMWE3OTc0MWY4YyIsImlhdCI6MTczOTM3ODA2Ni43MjIwOTYsIm5iZiI6MTczOTM3ODA2Ni43MjIwOTksImV4cCI6MTczOTM4NTI2Ni43MDAxNzEsInN1YiI6IjBlZDZhZWEwLTVkYTUtNDM1NS05YTllLWU1MWM4ODhkZjFkZCIsInNjb3BlcyI6W119.AiWvFqwNoXNEcspt5AgGT0T4cmCEsakNH3LzApjoPfwdKOKz5i9CyipRrqh1MjNiXLzqODFwQEVemlOl0d0ai5Sw6ML7h_ZiuXld5lE7Kahj81X4SrvBvFnNp8wvEDcQSNW61MDmdBc3ls9sxu1oigZ5Y6d52M4njEmXothqKDLMC_mDtQhcS1lDeK8mW_rbGgFR2tKg-cA46ZCoKEaFBeQEzGmd-vXJzeOHr6RWIIY2BenE3qWW7vI0WrCGEtEyxyMz5lr9_q_1BxJDb3-A-4oez28IxdP1sT-MtffehFRGtZCtPLkKs2myfM-O_x77A3lrlfmx44g_nowOSGMwdwNc6FAPM_q6_C2nAWUuClzBblEs-LNOhYcQAmSvPclW-JT4lVgrS1segqlKvnvN53TAePY4oc7GbHN12QiafHZf3pofCsXISmvXajBT0pp64Gp7XlhLNLCDTiEdYNbIrBhyuY1O-i2_KTxKBEKEoyO-Mw5WwSc23c76eVJfP-qgMbcvjWPTQJWqyJTsXgf0v9difR1nZ7z7TljvoOScvV0ddxMGAaABAAEmefAkoMVTl0YopcFQH3xMGupZP1ZlQtkbiRx_ooBY4yOj5CMA5vCrFh8jgT4eMEytpHfB_om2ukkULvLEZyWq5PLtwlzzV_W41axqT-H0YmDT2xS9WL4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{nicasiabaseurl}}/department",
+							"host": [
+								"{{nicasiabaseurl}}"
+							],
+							"path": [
+								"department"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get department (search)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5OTc4NzM5YS1kZjE2LTQ5NjctOTAyZi1jZjYyMDI1ZDQ4YzkiLCJqdGkiOiI2MTY1OWE0N2ZmZGRiMDA4NjFiYTI1OGIxYWQ4OWYxMDVkMjA0M2UxM2ZlOTFiNjRjNTIyODEyOTIxMGE4YzBjYWIxMzJkMWE3OTc0MWY4YyIsImlhdCI6MTczOTM3ODA2Ni43MjIwOTYsIm5iZiI6MTczOTM3ODA2Ni43MjIwOTksImV4cCI6MTczOTM4NTI2Ni43MDAxNzEsInN1YiI6IjBlZDZhZWEwLTVkYTUtNDM1NS05YTllLWU1MWM4ODhkZjFkZCIsInNjb3BlcyI6W119.AiWvFqwNoXNEcspt5AgGT0T4cmCEsakNH3LzApjoPfwdKOKz5i9CyipRrqh1MjNiXLzqODFwQEVemlOl0d0ai5Sw6ML7h_ZiuXld5lE7Kahj81X4SrvBvFnNp8wvEDcQSNW61MDmdBc3ls9sxu1oigZ5Y6d52M4njEmXothqKDLMC_mDtQhcS1lDeK8mW_rbGgFR2tKg-cA46ZCoKEaFBeQEzGmd-vXJzeOHr6RWIIY2BenE3qWW7vI0WrCGEtEyxyMz5lr9_q_1BxJDb3-A-4oez28IxdP1sT-MtffehFRGtZCtPLkKs2myfM-O_x77A3lrlfmx44g_nowOSGMwdwNc6FAPM_q6_C2nAWUuClzBblEs-LNOhYcQAmSvPclW-JT4lVgrS1segqlKvnvN53TAePY4oc7GbHN12QiafHZf3pofCsXISmvXajBT0pp64Gp7XlhLNLCDTiEdYNbIrBhyuY1O-i2_KTxKBEKEoyO-Mw5WwSc23c76eVJfP-qgMbcvjWPTQJWqyJTsXgf0v9difR1nZ7z7TljvoOScvV0ddxMGAaABAAEmefAkoMVTl0YopcFQH3xMGupZP1ZlQtkbiRx_ooBY4yOj5CMA5vCrFh8jgT4eMEytpHfB_om2ukkULvLEZyWq5PLtwlzzV_W41axqT-H0YmDT2xS9WL4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{nicasiabaseurl}}/department?statusId=Active",
+							"host": [
+								"{{nicasiabaseurl}}"
+							],
+							"path": [
+								"department"
+							],
+							"query": [
+								{
+									"key": "statusId",
+									"value": "Active"
+								},
+								{
+									"key": "statusId",
+									"value": "Inactive",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "role",
+			"item": [
+				{
+					"name": "post role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5OTc4NzM5YS1kZjE2LTQ5NjctOTAyZi1jZjYyMDI1ZDQ4YzkiLCJqdGkiOiI2MTY1OWE0N2ZmZGRiMDA4NjFiYTI1OGIxYWQ4OWYxMDVkMjA0M2UxM2ZlOTFiNjRjNTIyODEyOTIxMGE4YzBjYWIxMzJkMWE3OTc0MWY4YyIsImlhdCI6MTczOTM3ODA2Ni43MjIwOTYsIm5iZiI6MTczOTM3ODA2Ni43MjIwOTksImV4cCI6MTczOTM4NTI2Ni43MDAxNzEsInN1YiI6IjBlZDZhZWEwLTVkYTUtNDM1NS05YTllLWU1MWM4ODhkZjFkZCIsInNjb3BlcyI6W119.AiWvFqwNoXNEcspt5AgGT0T4cmCEsakNH3LzApjoPfwdKOKz5i9CyipRrqh1MjNiXLzqODFwQEVemlOl0d0ai5Sw6ML7h_ZiuXld5lE7Kahj81X4SrvBvFnNp8wvEDcQSNW61MDmdBc3ls9sxu1oigZ5Y6d52M4njEmXothqKDLMC_mDtQhcS1lDeK8mW_rbGgFR2tKg-cA46ZCoKEaFBeQEzGmd-vXJzeOHr6RWIIY2BenE3qWW7vI0WrCGEtEyxyMz5lr9_q_1BxJDb3-A-4oez28IxdP1sT-MtffehFRGtZCtPLkKs2myfM-O_x77A3lrlfmx44g_nowOSGMwdwNc6FAPM_q6_C2nAWUuClzBblEs-LNOhYcQAmSvPclW-JT4lVgrS1segqlKvnvN53TAePY4oc7GbHN12QiafHZf3pofCsXISmvXajBT0pp64Gp7XlhLNLCDTiEdYNbIrBhyuY1O-i2_KTxKBEKEoyO-Mw5WwSc23c76eVJfP-qgMbcvjWPTQJWqyJTsXgf0v9difR1nZ7z7TljvoOScvV0ddxMGAaABAAEmefAkoMVTl0YopcFQH3xMGupZP1ZlQtkbiRx_ooBY4yOj5CMA5vCrFh8jgT4eMEytpHfB_om2ukkULvLEZyWq5PLtwlzzV_W41axqT-H0YmDT2xS9WL4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"finance \",\r\n  \"permissions\": [\r\n    {\r\n      \"id\": \"3507681b-ca1f-489e-90fe-5092113edf0b\"\r\n    }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{nicasiabaseurl}}/role",
+							"host": [
+								"{{nicasiabaseurl}}"
+							],
+							"path": [
+								"role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get role",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "grt role by id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BearerToken",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
